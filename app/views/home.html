@@ -27,10 +27,12 @@
       </div>
 
       <span ng-repeat="post in posts | filter:search:strict">
-        <h2>{{post.title}}</h2><br>
-
+        <a ui-sref="show({id: post.id})">
+          <h2>{{post.title}}</h2>
+        </a>
+        <br>
         <p class="lead">
-          by <a href="index.php">Start Bootstrap</a>
+          by Bri
         </p>
 
         <small ng-repeat="tag_id in post.tag_ids">
@@ -39,7 +41,7 @@
 
         <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date | date:'EEEE'}}</p>
         <hr>
-        <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+        <img class="img-responsive" src="http://placekitten.com/900/300" alt="">
         <hr>
         <p>{{post.content}}</p>
         <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -77,7 +79,7 @@
 
     <!-- Blog Categories Well -->
     <div class="well">
-      <h4>Blog Categories</h4>
+      <h4>Tags</h4>
       <div class="row">
         <div class="col-lg-6">
           <ul class="list-unstyled">
