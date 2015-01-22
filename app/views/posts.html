@@ -3,5 +3,29 @@
   <div ui-view="new"></div>
   {{name}}
   <hr>
-    {{posts}}
+
+  <span ng-repeat="post in posts | filter:search:strict">
+    <a ui-sref="show({id: post.id})">
+      <h2>{{post.title}}</h2>
+    </a>
+    <br>
+    <p class="lead">
+      by Bri
+    </p>
+
+    <span ng-if="post.tag_ids.length > 0">Tags:</span>
+    <div ng-repeat="tag_id in post.tag_ids">
+      {{getTagName(tag_id)}}
+    </div>
+
+    <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date | date:'EEEE'}}</p>
+    <hr>
+    <img class="img-responsive" src="http://placekitten.com/900/300" alt="">
+    <hr>
+    <p>{{post.content}}</p>
+    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+    <hr>
+  </span>
+
 </div>
