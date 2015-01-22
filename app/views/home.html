@@ -20,11 +20,9 @@
         Title: <input type="text" ng-model="newPost.title"/>
         Content: <input type="text" ng-model="newPost.content"/>
         Tags:
-        <div ng-repeat="tag in tags">
-          <md-checkbox show-attrs type="checkbox" ng-click="ToggleId(tag.id)" ng-keypress="ToggleId(tag.id)">
+          <md-checkbox ng-repeat="tag in tags" ng-click="ToggleId(tag.id)">
             {{tag.name}}
           </md-checkbox>
-        </div>
         <div ng-click="submitNewPost()">submit</div>
         {{newPost}}
       </form>
