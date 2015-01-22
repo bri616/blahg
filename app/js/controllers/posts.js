@@ -1,7 +1,12 @@
 var postsControllerModule = angular.module('postsControllerModule', []);
 
-postsControllerModule.controller('postsController', ['$scope', '$http', function($scope, $http) {
+postsControllerModule.controller('postsController', ['$scope', '$http', 'apiService', function($scope, $http, apiService) {
   $scope.name = "posts controller yayayay!";
+  $scope.posts = [];
+  apiService.get('/posts')
+    .success(function(data) {
+      $scope.posts = data;
+    });
 }]);
 
 postsControllerModule.controller('newPostController', ['$scope', '$http', function($scope, $http) {

@@ -3,7 +3,7 @@ var homeControllerModule = angular.module('homeControllerModule', []);
 homeControllerModule.controller('homeController', ['$scope', '$http', 'apiService', function($scope, $http, apiService) {
     $scope.hello = "Hi";
     $scope.tags = [];
-    $scope.post = [];
+    $scope.posts = [];
     apiService.get('/posts')
       .success(function(data) {
         $scope.posts = data;
