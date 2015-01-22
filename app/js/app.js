@@ -3,7 +3,8 @@ var blahgApp = angular.module('blahgApp', [
   'homeControllerModule',
   'postsControllerModule',
   'servicesModule',
-  'ngAria'
+  'ngAria',
+  'ngMaterial'
 ]);
 
 blahgApp.config(function($stateProvider, $urlRouterProvider) {
@@ -29,4 +30,22 @@ blahgApp.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'app/views/show.html'
   });
   $urlRouterProvider.otherwise('/');
+});
+
+blahgApp.directive('showAttrs', function() {
+  return function(scope, el, attrs) {
+    var pre = document.createElement('pre');
+    el.after(pre);
+    scope.$watch(function() {
+      var attrs = {};
+      Array.prototype.slice.call(el[0].attributes, 0).forEach(function(item) {
+        if (item.name !== 'show-attrs') {
+          attrs[item.name] = item.value;
+        }
+      });
+      return attrs;
+    }, function(newAttrs, oldAttrs) {
+      pre.innerText = JSON.stringify(newAttrs, null, 2);
+    }, true);
+  }
 });

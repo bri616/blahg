@@ -16,17 +16,18 @@
 
       Search is {{search}}
 
-      <div class="form">
+      <form>
         Title: <input type="text" ng-model="newPost.title"/>
         Content: <input type="text" ng-model="newPost.content"/>
-        Tags:   <div ng-repeat="tag in tags">
-          <input type="checkbox" ng-click="ToggleId(tag.id)">
-          {{tag.name}}
-        </input>
-      </div>
+        Tags:
+        <div ng-repeat="tag in tags">
+          <md-checkbox show-attrs type="checkbox" ng-click="ToggleId(tag.id)" ng-keypress="ToggleId(tag.id)">
+            {{tag.name}}
+          </md-checkbox>
+        </div>
         <div ng-click="submitNewPost()">submit</div>
         {{newPost}}
-      </div>
+      </form>
 
       <span ng-repeat="post in posts | filter:search:strict">
         <a ui-sref="show({id: post.id})">
