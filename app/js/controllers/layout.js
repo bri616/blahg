@@ -41,6 +41,7 @@ homeControllerModule.controller('homeController', ['$scope', '$http', 'apiServic
       // remove 1 item from the array at the index value i
       $scope.newPost.tag_ids.splice(i, 1);
     }
+    console.log($scope)
   };
 
 }]);
