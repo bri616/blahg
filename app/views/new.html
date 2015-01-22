@@ -1,6 +1,11 @@
 <div ng-controller="newPostController">
   Title: <input type="text" ng-model="newPost.title"/>
   Content: <input type="text" ng-model="newPost.content"/>
+  <div ng-repeat="tag in tags">
+    <input type="checkbox" ng-click="">
+      {{tag.name}}
+    </input>
+  </div>
   <button ng-click="submitNewPost()">Submit</button>
   {{newPost}}
 </div>

@@ -19,9 +19,11 @@
       <div class="form">
         Title: <input type="text" ng-model="newPost.title"/>
         Content: <input type="text" ng-model="newPost.content"/>
-        Tags: <span ng-repeat="tag in tags">
-          <input type="checkbox" value="tag.id">{{tag.name}}</input>
-        </span>
+        Tags:   <div ng-repeat="tag in tags">
+          <input type="checkbox" ng-click="ToggleId(tag.id) ">
+          {{tag.name}}
+        </input>
+      </div>
         <div ng-click="submitNewPost()">submit</div>
         {{newPost}}
       </div>
@@ -35,9 +37,10 @@
           by Bri
         </p>
 
-        <small ng-repeat="tag_id in post.tag_ids">
+        <span ng-if="post.tag_ids.length > 0">Tags:</span>
+        <div ng-repeat="tag_id in post.tag_ids">
           {{getTagName(tag_id)}}
-        </small>
+        </div>
 
         <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date | date:'EEEE'}}</p>
         <hr>
