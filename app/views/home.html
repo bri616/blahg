@@ -23,7 +23,7 @@
           <md-checkbox ng-model-"newPost.tags" ng-repeat="tag in tags" ng-click="ToggleId(tag.id)">
             {{tag.name}}
           </md-checkbox>
-        <div ng-click="submitNewPost()">submit</div>
+        <button ng-click="submitNewPost()">submit</button>
         {{newPost}}
       </form>
 
